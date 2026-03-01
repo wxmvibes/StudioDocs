@@ -2,54 +2,67 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Star Services – Documentation</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docs – Star Services</title>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<div class="sidebar">
-  <h3>Documentation</h3>
-  <a href="index.html">← Back to Home</a>
-  <a href="#">Getting Started</a>
-  <a href="#">Billing & Accounts</a>
-  <a href="#">Reports & Analytics</a>
+<header>
+  <div class="logo">
+    <div class="logo-mark">★</div> Star Services
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()">🌗 Theme</button>
+</header>
 
-  <h3>Advanced Configuration</h3>
-  <a href="#">Overview</a>
-  <a href="#">Key Components</a>
-  <a href="#">CLI Tools</a>
-  <a href="#">Plugins</a>
-  <a href="#">APIs & SDKs</a>
+<div class="docs-wrapper">
+
+  <div class="sidebar">
+    <h3>Documentation</h3>
+    <a href="index.html">← Back to Home</a>
+    <a href="docs.html?page=getting-started">Getting Started</a>
+    <a href="docs.html?page=advanced-config">Advanced Configuration</a>
+  </div>
+
+  <div class="content" id="doc-content">
+    Loading…
+  </div>
+
 </div>
 
-<div class="content">
-  <a href="index.html" class="back">← Back to categories</a>
+<footer>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Media</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
+  </div>
 
-  <h1>Key Components of Advanced Configuration</h1>
+  <div class="social-icons">
+    <a href="#">📘</a>
+    <a href="#">💼</a>
+    <a href="#">📸</a>
+    <a href="#">💬</a>
+    <a href="#">🐦</a>
+  </div>
 
-  <p>Advanced configuration involves several core elements that allow deeper control of a system or application.</p>
+  © 2026 Company Ltd. All rights reserved.
+</footer>
 
-  <h2>1. Configuration Files</h2>
-  <p>These files store system settings and allow customization beyond the UI.</p>
+<script>
+const params = new URLSearchParams(location.search);
+const page = params.get("page") || "getting-started";
 
-  <h2>2. Command Line Interface (CLI)</h2>
-  <p>Provides powerful text‑based control for advanced users.</p>
+fetch(`templates/${page}.html`)
+  .then(res => res.text())
+  .then(html => document.getElementById("doc-content").innerHTML = html)
+  .catch(() => document.getElementById("doc-content").innerHTML = "<h1>Page not found</h1>");
+</script>
 
-  <h2>3. Scripting Languages</h2>
-  <p>Tools like Python or Bash automate complex workflows.</p>
-
-  <h2>4. Plugins and Extensions</h2>
-  <p>Extend system functionality and integrate external tools.</p>
-
-  <h2>5. APIs and SDKs</h2>
-  <p>Enable programmatic configuration and automation.</p>
-</div>
-
-  <script>
+<script>
 const root = document.documentElement;
 const saved = localStorage.getItem("theme");
-
 if (saved) root.setAttribute("data-theme", saved);
 
 function toggleTheme() {
@@ -59,6 +72,5 @@ function toggleTheme() {
 }
 </script>
 
-  
 </body>
 </html>
