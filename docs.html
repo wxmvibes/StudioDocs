@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Docs – Star Services</title>
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>Star Services – Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <header>
   <div class="logo">
-    <div class="logo-mark">★</div> Star Services
+    <div class="logo-mark">★</div>
+    <div>Star Services</div>
   </div>
-  <button class="theme-toggle" onclick="toggleTheme()">🌗 Theme</button>
+  <div class="header-right">
+    <nav class="header-links">
+      <a href="index.html">Home</a>
+      <a href="#">Docs</a>
+      <a href="#">API</a>
+      <a href="#">Status</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">🌗</button>
+  </div>
 </header>
 
 <div class="docs-wrapper">
-
-  <div class="sidebar">
+  <aside class="sidebar">
     <h3>Documentation</h3>
-    <a href="index.html">← Back to Home</a>
+    <a href="index.html">← Back to Help Center</a>
     <a href="docs.html?page=getting-started">Getting Started</a>
-    <a href="docs.html?page=advanced-config">Advanced Configuration</a>
-  </div>
+    <a href="docs.html?page=billing">Billing &amp; Accounts</a>
+    <a href="docs.html?page=reports">Reports &amp; Analytics</a>
 
-  <div class="content" id="doc-content">
+    <h3>Advanced Configuration</h3>
+    <a href="docs.html?page=advanced-config">Overview</a>
+    <a href="docs.html?page=advanced-config">Key Components</a>
+    <a href="docs.html?page=api">APIs &amp; SDKs</a>
+  </aside>
+
+  <main class="content" id="doc-content">
     Loading…
-  </div>
-
+  </main>
 </div>
 
-<footer>
+<footer class="docs-footer">
   <div class="footer-links">
     <a href="#">Home</a>
     <a href="#">About</a>
@@ -51,25 +65,30 @@
 </footer>
 
 <script>
-const params = new URLSearchParams(location.search);
-const page = params.get("page") || "getting-started";
+  const params = new URLSearchParams(location.search);
+  const page = params.get("page") || "getting-started";
 
-fetch(`templates/${page}.html`)
-  .then(res => res.text())
-  .then(html => document.getElementById("doc-content").innerHTML = html)
-  .catch(() => document.getElementById("doc-content").innerHTML = "<h1>Page not found</h1>");
+  fetch(`templates/${page}.html`)
+    .then(res => res.ok ? res.text() : Promise.reject())
+    .then(html => {
+      document.getElementById("doc-content").innerHTML = html;
+    })
+    .catch(() => {
+      document.getElementById("doc-content").innerHTML = "<h1>Page not found</h1>";
+    });
 </script>
 
 <script>
-const root = document.documentElement;
-const saved = localStorage.getItem("theme");
-if (saved) root.setAttribute("data-theme", saved);
+  const root = document.documentElement;
+  const saved = localStorage.getItem("theme");
+  if (saved) root.setAttribute("data-theme", saved);
+  else root.setAttribute("data-theme", "light");
 
-function toggleTheme() {
-  const current = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-  root.setAttribute("data-theme", current);
-  localStorage.setItem("theme", current);
-}
+  function toggleTheme() {
+    const current = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", current);
+    localStorage.setItem("theme", current);
+  }
 </script>
 
 </body>
