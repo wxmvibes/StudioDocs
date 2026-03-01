@@ -1,6 +1,6 @@
-/* ------------------------------
-   GLOBAL + THEME VARIABLES
------------------------------- */
+/* -----------------------------------
+   THEME VARIABLES
+----------------------------------- */
 :root {
   --bg: #f5f7fb;
   --text: #1f2933;
@@ -29,9 +29,9 @@ body {
   transition: background 0.25s, color 0.25s;
 }
 
-/* ------------------------------
+/* -----------------------------------
    HEADER
------------------------------- */
+----------------------------------- */
 header {
   background: #111827;
   color: #fff;
@@ -39,6 +39,25 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
 }
 
 .theme-toggle {
@@ -51,9 +70,46 @@ header {
   font-size: 14px;
 }
 
-/* ------------------------------
-   CARDS + GRID
------------------------------- */
+/* -----------------------------------
+   HERO
+----------------------------------- */
+.hero {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  max-width: 520px;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+/* -----------------------------------
+   SEARCH
+----------------------------------- */
+.search-wrapper {
+  margin: 24px auto 0;
+  max-width: 520px;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 12px 40px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+/* -----------------------------------
+   GRID + CARDS
+----------------------------------- */
 .grid {
   max-width: 1100px;
   margin: 40px auto;
@@ -80,9 +136,33 @@ header {
   box-shadow: 0 16px 35px rgba(0,0,0,0.12);
 }
 
-/* ------------------------------
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.icon-blue {
+  background: linear-gradient(135deg,#3b82f6,#6366f1);
+}
+
+/* -----------------------------------
    DOCS LAYOUT
------------------------------- */
+----------------------------------- */
+.docs-wrapper {
+  display: flex;
+}
+
 .sidebar {
   width: 260px;
   background: var(--card-bg);
@@ -93,15 +173,34 @@ header {
   top: 0;
 }
 
+.sidebar h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 0;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sidebar a:hover {
+  color: #3b82f6;
+}
+
 .content {
   flex: 1;
   padding: 40px;
   max-width: 900px;
 }
 
-/* ------------------------------
+/* -----------------------------------
    CODE BLOCKS
------------------------------- */
+----------------------------------- */
 pre {
   background: #1e293b;
   color: #e2e8f0;
@@ -118,9 +217,9 @@ pre {
   border-color: #e5e7eb;
 }
 
-/* ------------------------------
+/* -----------------------------------
    FOOTER
------------------------------- */
+----------------------------------- */
 footer {
   background: var(--footer-bg);
   color: var(--footer-text);
