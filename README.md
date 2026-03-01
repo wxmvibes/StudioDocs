@@ -1,25 +1,30 @@
-# StudioDocs
+# Star Services Documentation Website
 
-This is a simple two‑page documentation website built with HTML and external CSS.
+A clean, modern documentation system with:
+
+- Dark/Light mode
+- Dynamic template loading
+- Sidebar navigation
+- Code block styling
+- Footer with social links
+- External CSS
 
 ## Structure
 
-**main
-│_ css
-│    |_ styles.css
-│
+main
+│_ css/styles.css
+│_ templates/*.html
 │_ index.html
 │_ docs.html
-│_ README.md**
+│_ README.md
 
 
-## Pages
+## Usage
 
-### `index.html`
-The homepage with category cards. Clicking a card opens the documentation page.
+- Open `index.html` to browse categories.
+- Clicking a card loads `docs.html?page=...`.
+- Docs content is stored in `/templates/`.
 
-### `docs.html`
-A clean documentation layout with a sidebar and article content.
+## Hosting
 
-### `css/styles.css`
-Shared stylesheet for both pages.
+Upload to GitHub Pages and enable Pages in repository settings.
