@@ -1,80 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Star Services – Help Center</title>
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <title>Star Services Help Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="page-wrapper">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">★</div>
+        <div>Star Services</div>
+      </div>
+      <div class="header-right">
+        <nav class="header-links">
+          <a href="#">Docs</a>
+          <a href="#">API</a>
+          <a href="#">Status</a>
+          <a href="#">Contact</a>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()">🌗</button>
+      </div>
+    </header>
 
-<header>
-  <div class="logo">
-    <div class="logo-mark">★</div> Star Services
+    <main>
+      <section class="hero">
+        <h1 class="hero-title">We’re here to help</h1>
+        <p class="hero-subtitle">
+          Search our documentation, browse popular topics, and find the guidance you need to get the most out of Star Services.
+        </p>
+
+        <div class="search-wrapper">
+          <div class="search-icon"></div>
+          <input type="text" placeholder="Search for articles, topics, or keywords" />
+          <div class="search-shortcut">Ctrl + K</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="categories-header">
+          <div>
+            <div class="categories-title">Browse by category</div>
+            <div class="categories-subtitle">Quickly jump into the most common help topics.</div>
+          </div>
+          <a href="#" class="categories-link">
+            View all articles
+            <span>→</span>
+          </a>
+        </div>
+
+        <div class="grid">
+          <article class="card" onclick="location.href='docs.html?page=getting-started'">
+            <div class="card-header">
+              <div class="card-icon icon-blue">▶</div>
+              <div class="card-title">Getting Started</div>
+            </div>
+            <div class="card-body">
+              Learn the basics, set up your account, and start using Star Services in just a few minutes.
+            </div>
+            <div class="card-footer">
+              Explore guides <span>→</span>
+            </div>
+          </article>
+
+          <article class="card" onclick="location.href='docs.html?page=billing'">
+            <div class="card-header">
+              <div class="card-icon icon-green">£</div>
+              <div class="card-title">Billings &amp; Accounts</div>
+            </div>
+            <div class="card-body">
+              Manage subscriptions, invoices, payment methods, and account ownership for your organization.
+            </div>
+            <div class="card-footer">
+              View billing help <span>→</span>
+            </div>
+          </article>
+
+          <article class="card" onclick="location.href='docs.html?page=reports'">
+            <div class="card-header">
+              <div class="card-icon icon-purple">📊</div>
+              <div class="card-title">Reports &amp; Analytics</div>
+            </div>
+            <div class="card-body">
+              Understand your data with dashboards, exports, and advanced reporting capabilities.
+            </div>
+            <div class="card-footer">
+              See reporting docs <span>→</span>
+            </div>
+          </article>
+
+          <article class="card" onclick="location.href='docs.html?page=advanced-config'">
+            <div class="card-header">
+              <div class="card-icon icon-orange">⚙</div>
+              <div class="card-title">Advanced Configuration</div>
+            </div>
+            <div class="card-body">
+              Customize settings, automation rules, and integrations to match your exact workflows.
+            </div>
+            <div class="card-footer">
+              Configure features <span>→</span>
+            </div>
+          </article>
+
+          <article class="card" onclick="location.href='docs.html?page=downloads'">
+            <div class="card-header">
+              <div class="card-icon icon-sky">⬇</div>
+              <div class="card-title">File Downloads</div>
+            </div>
+            <div class="card-body">
+              Access installers, resources, templates, and other downloadable assets for your team.
+            </div>
+            <div class="card-footer">
+              Browse downloads <span>→</span>
+            </div>
+          </article>
+
+          <article class="card" onclick="location.href='docs.html?page=how-to'">
+            <div class="card-header">
+              <div class="card-icon icon-pink">❓</div>
+              <div class="card-title">How‑to Articles</div>
+            </div>
+            <div class="card-body">
+              Step‑by‑step walkthroughs for common tasks, from simple actions to advanced workflows.
+            </div>
+            <div class="card-footer">
+              Read how‑tos <span>→</span>
+            </div>
+          </article>
+
+          <article class="card" onclick="location.href='docs.html?page=api'">
+            <div class="card-header">
+              <div class="card-icon icon-amber">{ }</div>
+              <div class="card-title">Developer APIs</div>
+            </div>
+            <div class="card-body">
+              Learn how to authenticate, call our APIs, and embed Star Services into your own apps.
+            </div>
+            <div class="card-footer">
+              View API docs <span>→</span>
+            </div>
+          </article>
+
+          <article class="card" onclick="location.href='docs.html?page=terms'">
+            <div class="card-header">
+              <div class="card-icon icon-slate">⚖</div>
+              <div class="card-title">Terms &amp; Policies</div>
+            </div>
+            <div class="card-body">
+              Review our terms of service, privacy policy, and other important legal information.
+            </div>
+            <div class="card-footer">
+              Review policies <span>→</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="index-footer">
+      © 2026 Star Services. All rights reserved.
+    </footer>
   </div>
-  <button class="theme-toggle" onclick="toggleTheme()">🌗 Theme</button>
-</header>
 
-<section class="hero">
-  <h1>We’re here to help</h1>
-  <p>Search our documentation or browse the most common topics.</p>
+  <script>
+    const root = document.documentElement;
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+    else root.setAttribute("data-theme", "light");
 
-  <div class="search-wrapper">
-    <input type="text" placeholder="Search for articles…">
-  </div>
-</section>
-
-<div class="grid">
-
-  <a href="docs.html?page=getting-started" class="card">
-    <div class="card-header">
-      <div class="card-icon icon-blue">▶</div>
-      <div class="card-title">Getting Started</div>
-    </div>
-    <p>Learn the basics and start using Star Services.</p>
-  </a>
-
-  <a href="docs.html?page=advanced-config" class="card">
-    <div class="card-header">
-      <div class="card-icon icon-blue">⚙</div>
-      <div class="card-title">Advanced Configuration</div>
-    </div>
-    <p>Customize settings and workflows.</p>
-  </a>
-
-</div>
-
-<footer>
-  <div class="footer-links">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Media</a>
-    <a href="#">Gallery</a>
-    <a href="#">Contact</a>
-  </div>
-
-  <div class="social-icons">
-    <a href="#">📘</a>
-    <a href="#">💼</a>
-    <a href="#">📸</a>
-    <a href="#">💬</a>
-    <a href="#">🐦</a>
-  </div>
-
-  © 2026 Company Ltd. All rights reserved.
-</footer>
-
-<script>
-const root = document.documentElement;
-const saved = localStorage.getItem("theme");
-if (saved) root.setAttribute("data-theme", saved);
-
-function toggleTheme() {
-  const current = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-  root.setAttribute("data-theme", current);
-  localStorage.setItem("theme", current);
-}
-</script>
-
+    function toggleTheme() {
+      const current = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", current);
+      localStorage.setItem("theme", current);
+    }
+  </script>
 </body>
 </html>
