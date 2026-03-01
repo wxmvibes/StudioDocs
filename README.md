@@ -1,30 +1,19 @@
-# Star Services Documentation Website
+# Star Services Documentation Site
 
-A clean, modern documentation system with:
+A two-page documentation site with:
 
-- Dark/Light mode
-- Dynamic template loading
-- Sidebar navigation
+- Help Center homepage (cards)
+- Docs page with sidebar and templates
+- Dark/Light mode toggle (persistent)
 - Code block styling
-- Footer with social links
-- External CSS
+- Footer with social links on docs page
 
 ## Structure
 
-main
-│_ css/styles.css
-│_ templates/*.html
-│_ index.html
-│_ docs.html
-│_ README.md
+- `index.html` – Help Center, visually matches original design
+- `docs.html` – Documentation layout, loads content from `/templates`
+- `css/styles.css` – Shared styles and theme variables
+- `templates/*.html` – Individual doc pages
+- `README.md` – Project info
 
-
-## Usage
-
-- Open `index.html` to browse categories.
-- Clicking a card loads `docs.html?page=...`.
-- Docs content is stored in `/templates/`.
-
-## Hosting
-
-Upload to GitHub Pages and enable Pages in repository settings.
+Open `index.html` in a browser to start.
